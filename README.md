@@ -4,6 +4,7 @@ This repository contains a collection of beginner-friendly Java projects develop
 Each project is placed in its own folder with clear and readable code, making it easy for beginners and students to understand and learn.
 
 ----Purpose-----
+
 1.Strengthen Java fundamentals
 
 2.Practice problem-solving and logical thinking
