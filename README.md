@@ -37,8 +37,14 @@ By exploring and running these projects, you will:
 3. Open the project folder and run the main class for each project
 4. Explore, modify, and experiment with the code to enhance your learning
 
+## 📬 **Contact Me**
 
-## License
+If you want to collaborate or check my work on accounts:
+
+* **Email:** (soniakhan.com90@gmail.com)
+* **GitHub:** (https://github.com/soniakhan34)
+* **Linkdin**:(www.linkedin.com/in/sonia-khan-a863a6392)
+* **Upwork**:(https://www.upwork.com/freelancers/~01feaab9c9daa54082)
 
 This repository is open for learning and practice purposes. You are free to use and modify the projects for educational purposes.
 
