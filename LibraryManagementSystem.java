@@ -1,70 +1,83 @@
-// Simple Library Management System using Java Swing
-// Features: Add Book, Issue Book, Return Book, View Books
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.*;
 
-public class LibraryManagementSystem extends JFrame {
+public class ProfessionalLibrarySystem extends JFrame {
 
     JTextField txtId, txtName, txtAuthor;
     DefaultTableModel model;
 
-    public LibraryManagementSystem() {
-        setTitle("Library Management System");
-        setSize(700, 500);
+    public ProfessionalLibrarySystem() {
+        setTitle("📚 Library Management System");
+        setSize(750, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Panel
         JPanel panel = new JPanel();
         panel.setLayout(null);
-        panel.setBackground(new Color(240, 248, 255));
+        panel.setBackground(new Color(245, 245, 245)); // light grey background
         add(panel);
 
-        // Labels
-        JLabel lblTitle = new JLabel("Library Management System");
-        lblTitle.setFont(new Font("Arial", Font.BOLD, 22));
-        lblTitle.setBounds(200, 10, 350, 30);
+        // Title Label
+        JLabel lblTitle = new JLabel("📖 Library Management System", SwingConstants.CENTER);
+        lblTitle.setFont(new Font("Verdana", Font.BOLD, 24));
+        lblTitle.setForeground(new Color(30, 60, 120)); // professional dark blue
+        lblTitle.setBounds(150, 10, 400, 40);
         panel.add(lblTitle);
 
+        // Labels
         JLabel lblId = new JLabel("Book ID:");
-        lblId.setBounds(20, 60, 100, 25);
+        lblId.setFont(new Font("Arial", Font.BOLD, 14));
+        lblId.setBounds(20, 70, 100, 25);
         panel.add(lblId);
 
         JLabel lblName = new JLabel("Book Name:");
-        lblName.setBounds(20, 95, 100, 25);
+        lblName.setFont(new Font("Arial", Font.BOLD, 14));
+        lblName.setBounds(20, 110, 100, 25);
         panel.add(lblName);
 
         JLabel lblAuthor = new JLabel("Author:");
-        lblAuthor.setBounds(20, 130, 100, 25);
+        lblAuthor.setFont(new Font("Arial", Font.BOLD, 14));
+        lblAuthor.setBounds(20, 150, 100, 25);
         panel.add(lblAuthor);
 
         // Text Fields
         txtId = new JTextField();
-        txtId.setBounds(120, 60, 150, 25);
+        txtId.setBounds(120, 70, 180, 25);
         panel.add(txtId);
 
         txtName = new JTextField();
-        txtName.setBounds(120, 95, 150, 25);
+        txtName.setBounds(120, 110, 180, 25);
         panel.add(txtName);
 
         txtAuthor = new JTextField();
-        txtAuthor.setBounds(120, 130, 150, 25);
+        txtAuthor.setBounds(120, 150, 180, 25);
         panel.add(txtAuthor);
 
-        // Buttons
-        JButton btnAdd = new JButton("Add Book");
-        btnAdd.setBounds(20, 180, 120, 30);
+        // Buttons with professional colors
+        JButton btnAdd = new JButton("➕ Add Book");
+        btnAdd.setBounds(20, 200, 140, 35);
+        btnAdd.setBackground(new Color(34, 139, 34)); // green
+        btnAdd.setForeground(Color.WHITE);
+        btnAdd.setFont(new Font("Arial", Font.BOLD, 14));
+        btnAdd.setFocusPainted(false);
         panel.add(btnAdd);
 
-        JButton btnIssue = new JButton("Issue Book");
-        btnIssue.setBounds(150, 180, 120, 30);
+        JButton btnIssue = new JButton("📤 Issue Book");
+        btnIssue.setBounds(170, 200, 140, 35);
+        btnIssue.setBackground(new Color(70, 130, 180)); // blue
+        btnIssue.setForeground(Color.WHITE);
+        btnIssue.setFont(new Font("Arial", Font.BOLD, 14));
+        btnIssue.setFocusPainted(false);
         panel.add(btnIssue);
 
-        JButton btnReturn = new JButton("Return Book");
-        btnReturn.setBounds(280, 180, 120, 30);
+        JButton btnReturn = new JButton("📥 Return Book");
+        btnReturn.setBounds(320, 200, 140, 35);
+        btnReturn.setBackground(new Color(255, 140, 0)); // orange
+        btnReturn.setForeground(Color.WHITE);
+        btnReturn.setFont(new Font("Arial", Font.BOLD, 14));
+        btnReturn.setFocusPainted(false);
         panel.add(btnReturn);
 
         // Table
@@ -75,14 +88,20 @@ public class LibraryManagementSystem extends JFrame {
         model.addColumn("Status");
 
         JTable table = new JTable(model);
+        table.setFont(new Font("Arial", Font.PLAIN, 14));
+        table.setRowHeight(25);
+        table.getTableHeader().setFont(new Font("Arial", Font.BOLD, 14));
+        table.getTableHeader().setBackground(new Color(100, 149, 237));
+        table.getTableHeader().setForeground(Color.WHITE);
+
         JScrollPane sp = new JScrollPane(table);
-        sp.setBounds(20, 230, 650, 200);
+        sp.setBounds(20, 260, 690, 180);
         panel.add(sp);
 
         // Button Actions
         btnAdd.addActionListener(e -> {
             if (txtId.getText().isEmpty() || txtName.getText().isEmpty() || txtAuthor.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Please fill all fields");
+                JOptionPane.showMessageDialog(this, "⚠️ Please fill all fields");
             } else {
                 model.addRow(new Object[]{
                         txtId.getText(),
@@ -99,7 +118,7 @@ public class LibraryManagementSystem extends JFrame {
             if (row >= 0) {
                 model.setValueAt("Issued", row, 3);
             } else {
-                JOptionPane.showMessageDialog(this, "Select a book to issue");
+                JOptionPane.showMessageDialog(this, "⚠️ Select a book to issue");
             }
         });
 
@@ -108,7 +127,7 @@ public class LibraryManagementSystem extends JFrame {
             if (row >= 0) {
                 model.setValueAt("Available", row, 3);
             } else {
-                JOptionPane.showMessageDialog(this, "Select a book to return");
+                JOptionPane.showMessageDialog(this, "⚠️ Select a book to return");
             }
         });
     }
@@ -120,6 +139,6 @@ public class LibraryManagementSystem extends JFrame {
     }
 
     public static void main(String[] args) {
-        new LibraryManagementSystem().setVisible(true);
+        SwingUtilities.invokeLater(() -> new ProfessionalLibrarySystem().setVisible(true));
     }
 }
